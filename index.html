@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,60 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font&display=swap" rel="stylesheet">
+    <title>Star Wars RPG</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 </head>
+
 <body>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+        Star Wars RPG
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <a id="reyAnchor">
+                    <img src="assets/images/rey.jpg" id="rey" class="img imageRey"
+                        style="position:absolute; height: 175px">
+                </a>
+                <p id="reyText"></p>
+                <a id="kyloAnchor">
+                    <img src="assets/images/kylo.jpg" id="kylo" class="img imageKylo"
+                        style="position:absolute; left: 145px; height: 175px">
+                </a>
+                <p id="kyloText"></p>
+                <a id="bobaAnchor">
+                    <img src="assets/images/boba.jpg" id="boba" class="img imageBoba"
+                        style="position:absolute; left: 290px; height: 175px">
+                </a>
+                <p id="bobaText"></p>
+                <a id="vaderAnchor">
+                    <img src="assets/images/vader.jpg" id="vader" class="img imageVader"
+                        style="position:absolute; left: 435px; height: 175px">
+                </a>
+                <p id="vaderText"></p>
+
+            </div>
+            <div class="col-md-4">
+                <div class="jumbotron">
+                    <h1 class="display-4" id="headline"></h1>
+                    <p id="paragraph"></p>
+                    
+
+                    <a class="btn btn-primary btn-lg" role="button" id="attackButton">Attack</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="assets/javascript/game.js"> </script>
+
+
 </body>
+
 </html>

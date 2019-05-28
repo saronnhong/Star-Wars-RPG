@@ -1,0 +1,71 @@
+/* .actualImg {
+    border-width: thick;
+    padding: 10px;
+    margin: 10px;
+    border: green;
+} */
+nav {
+    color: rgb(175, 170, 170);
+    font: bold;
+    height: 50px;
+    font-size: 25px;
+    font-family: 'Cute Font', cursive;
+}
+.container {
+    margin-top: 10px;
+    
+}
+body {
+    background-image: url("https://i.imgur.com/GoxS27D.jpg");
+    
+
+}
+#rey, #kylo, #boba, #vader {
+    border-style:solid;
+    border-width: 20px;
+    border-color: rgb(168, 160, 160);
+    
+}
+#reyAnchor, #kyloAnchor, #bobaAnchor, #vaderAnchor {
+    position: relative;
+   
+  }
+
+#reyText {
+    position: absolute;
+    top: 158px;
+    margin-left: 30px;
+  }
+  #kyloText {
+    position: absolute;
+    top: 158px;
+    margin-left: 165px;
+  }
+  #bobaText {
+    position: absolute;
+    top: 158px;
+    margin-left: 305px;
+  }
+  #vaderText {
+    position: absolute;
+    top: 158px;
+    margin-left: 450px;
+  }
+  .jumbotron {
+      background-color: rgb(66, 63, 63);
+      padding: 2rem 2rem;
+      color: rgb(221, 220, 207);
+      font-family: 'Cute Font', cursive;
+  }
+
+  #attackButton {
+      margin-bottom: -15px;
+  }
+
+  #paragraph {
+      margin-bottom: 15px;
+      font-size: 30px;
+      line-height: 1.25;
+      font-family: 'Cute Font', cursive;
+      color: rgb(202, 209, 209);
+  }
