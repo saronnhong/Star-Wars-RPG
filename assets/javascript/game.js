@@ -4,7 +4,9 @@ $(document).ready(function () {
     var kylo = $(".imageKylo");
     var boba = $(".imageBoba");
     var vader = $(".imageVader");
-    var count = 0;                                                                      //keeps track of which stage in the selection process we are in
+    var count = 0;  
+    var loser = new Audio("assets/audio/raspberry.mp3");
+    var victory = new Audio("assets/audio/Victory.mp3");                                                                   //keeps track of which stage in the selection process we are in
 
     var yourCharacter = {                                                               //character stats
         name: "", hp: 0, attack: 0, counterAttack: 0, initialAttack: 0
@@ -289,14 +291,16 @@ $(document).ready(function () {
         if (yourCharacter.hp <= 0) {                                                //checks for how many enemies have been defeated
             $("#paragraph").html("You tried your best and failed. You lose! 😭");
             $("#attackButton").hide();
+            loser.play();
         }
         else if ((defender.hp <= 0) && (numOfRemainingOpponents > 0)) {
             $("#paragraph").html("You Won! </br> Select a new Defender");          
             $("#attackButton").hide();
         }
         else if ((defender.hp <= 0) && (numOfRemainingOpponents === 0)) {          
-            $("#paragraph").html("You Won! You are now the Emperor of the Galaxy");
+            $("#paragraph").html("You Won! You are now the Emperor of the Galaxy! 👑");
             $("#attackButton").hide();
+            victory.play();
         }
 
         if ((defender.hp <= 0) && (defender.name === "rey")) {                     //hides images of defeated characters and keeps track of number of defeated characters
