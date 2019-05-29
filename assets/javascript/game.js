@@ -4,9 +4,9 @@ $(document).ready(function () {
     var kylo = $(".imageKylo");
     var boba = $(".imageBoba");
     var vader = $(".imageVader");
-    var count = 0;
+    var count = 0;                                                                      //keeps track of which stage in the selection process we are in
 
-    var yourCharacter = {
+    var yourCharacter = {                                                               //character stats
         name: "", hp: 0, attack: 0, counterAttack: 0, initialAttack: 0
     };
     var defender = {
@@ -37,17 +37,19 @@ $(document).ready(function () {
     function updateVaderHP(hp) {
         $("#vaderText").text("VADER: " + vaderStats.hp + " HP");
     };
+
     updateReyHP(reyStats.hp);
     updateKyloHP(kyloStats.hp);
     updateBobaHP(bobaStats.hp);
     updateVaderHP(vaderStats.hp);
+
     $("#paragraph").text("Select your Champion!");
     $("#attackButton").hide();
 
-    function hideLoser(hero) {
+    function hideLoser(hero) {                                                          //hides images and text of characters
         if (hero == rey) {
-            $(".imageRey").remove();
-            $("#reyText").remove();
+            $(".imageRey").hide();
+            $("#reyText").hide();
         }
         else if (hero == kylo) {
             $(".imageKylo").hide();
@@ -63,8 +65,8 @@ $(document).ready(function () {
         }
     }
 
-    function moveImages(character) {
-        character.on("click", function () {
+    function moveImages(character) {                                                            //controls where images move to when they are selected. 
+        character.on("click", function () {                                                     //keeps track of which characters are selected as your character and which is the defenders
 
             if (this.id === "rey" && count === 0) {
                 $(".imageKylo").animate({ left: "-=146px", top: "+=200px" }, "fast");
@@ -131,7 +133,7 @@ $(document).ready(function () {
                 $("#attackButton").show();
             }
 
-            else if (this.id === "kylo" && (yourCharacter.name === vaderStats.name) && count === 1) {          //correct alignment issue on display
+            else if (this.id === "kylo" && (yourCharacter.name === vaderStats.name) && count === 1) {          
                 $(".imageKylo").animate({ left: "+=0px", top: "+=200px" }, "fast");
                 $("#kyloText").animate({ left: "+=0px", top: "+=200px" }, "fast");
                 $("#paragraph").text("You have selected Kylo Ren to fight!");
@@ -259,12 +261,12 @@ $(document).ready(function () {
 
     var numOfRemainingOpponents = 2;
 
-    $("#attackButton").on("click", function () {
+    $("#attackButton").on("click", function () {                                    //actions that occur when select Attack button        
         yourCharacter.hp = yourCharacter.hp - defender.counterAttack;
         defender.hp = defender.hp - yourCharacter.attack;
-
         $("#paragraph").html(yourCharacter.name + " attacked for " + yourCharacter.attack + "<br/>" + defender.name + " attacked for " + defender.counterAttack);
         yourCharacter.attack = yourCharacter.attack + yourCharacter.initialAttack;
+
         if (yourCharacter.name === reyStats.name) {
             reyStats.hp = yourCharacter.hp;
         }
@@ -278,26 +280,26 @@ $(document).ready(function () {
         else if (yourCharacter.name === vaderStats.name) {
             vaderStats.hp = yourCharacter.hp;
         }
-        updateReyHP(reyStats.hp);
+        
+        updateReyHP(reyStats.hp);                                                   //updates characters HP
         updateKyloHP(kyloStats.hp);
         updateBobaHP(bobaStats.hp);
         updateVaderHP(vaderStats.hp);
-        if (yourCharacter.hp <= 0) {                                 //check for lost
+
+        if (yourCharacter.hp <= 0) {                                                //checks for how many enemies have been defeated
             $("#paragraph").html("You tried your best and failed. You lose! 😭");
             $("#attackButton").hide();
         }
         else if ((defender.hp <= 0) && (numOfRemainingOpponents > 0)) {
-            $("#paragraph").html("You Won! </br> Select a new Defender");          //check if you defeated 1st enemy
-            //numOfRemainingOpponents--;
+            $("#paragraph").html("You Won! </br> Select a new Defender");          
             $("#attackButton").hide();
-            //alert(numOfRemainingOpponents);
         }
-        else if ((defender.hp <= 0) && (numOfRemainingOpponents === 0)) {
+        else if ((defender.hp <= 0) && (numOfRemainingOpponents === 0)) {          
             $("#paragraph").html("You Won! You are now the Emperor of the Galaxy");
             $("#attackButton").hide();
         }
 
-        if ((defender.hp <= 0) && (defender.name === "rey")) {
+        if ((defender.hp <= 0) && (defender.name === "rey")) {                     //hides images of defeated characters and keeps track of number of defeated characters
             hideLoser(rey);
             numOfRemainingOpponents--;
         }
