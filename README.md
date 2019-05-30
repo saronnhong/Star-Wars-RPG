@@ -1,1 +1,2 @@
 # unit-4-game
+The game is a simple rpg battle. You choose your fighter and must defeat each of the other 3 remaining characters. As you go through more attacks, your character will get increasingly stronger while your opponent remains the same. You must figure out how to defeat all the characters on the field in order to win.
